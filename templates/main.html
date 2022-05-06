@@ -8,11 +8,19 @@
             font-family: "Calibri", serif;
             text-align: center;
             vertical-align: middle;
-            line-height: 90px;
+            line-height: 45px;
         }
     </style>
 </head>
 <body>
 <h1>You made it :D</h1>
+<form method="post">{% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+</form>
+<h2>Books</h2>
+{% for book in books %}
+    <span>{{ forloop.counter }}. {{ book.name }}</span><br>
+{% endfor %}
 </body>
 </html>
